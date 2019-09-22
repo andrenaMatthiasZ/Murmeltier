@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ArrayAdapter
 import android.widget.ListView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -19,19 +18,18 @@ class MainActivity : AppCompatActivity() {
 
         listView = findViewById(R.id.list)
 
-        val arrayList: ArrayList<String> = ArrayList()
+        val arrayList: ArrayList<ToDo> = ArrayList()
 
-        arrayList.add("First")
-        arrayList.add("Second")
 
-        val arrayAdapter: ArrayAdapter<String> =
-            ArrayAdapter(this, android.R.layout.simple_list_item_1, arrayList)
+
+        val arrayAdapter = ToDoListAdapter(this, arrayList)
 
         listView.adapter = arrayAdapter
-
-        fab.setOnClickListener { _ ->
+        arrayAdapter.add(ToDo("First"))
+        arrayAdapter.add(ToDo("Second"))
+        fab.setOnClickListener {
             run{
-                arrayAdapter.add("New Item")
+                arrayAdapter.add(ToDo("New Item"))
             }
         }
     }
