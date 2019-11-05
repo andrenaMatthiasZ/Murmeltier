@@ -18,19 +18,16 @@ class MainActivity : AppCompatActivity() {
 
         listView = findViewById(R.id.list)
 
-        val arrayList: ArrayList<ToDo> = ArrayList()
+        listView.adapter = createToDoList()
+    }
 
+    private fun createToDoList(): ToDoListAdapter {
+        val arrayAdapter = ToDoListAdapter(this, ArrayList())
 
-        val arrayAdapter = ToDoListAdapter(this, arrayList)
+        arrayAdapter.init()
+        fab.setOnClickListener { run { arrayAdapter.createNew() } }
 
-        listView.adapter = arrayAdapter
-        arrayAdapter.add(ToDo("First"))
-        arrayAdapter.add(ToDo("Second"))
-        fab.setOnClickListener {
-            run {
-                arrayAdapter.add(ToDo("Item ${arrayAdapter.count + 1}"))
-            }
-        }
+        return arrayAdapter
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
