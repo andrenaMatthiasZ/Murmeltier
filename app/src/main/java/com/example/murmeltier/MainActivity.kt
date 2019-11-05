@@ -21,15 +21,14 @@ class MainActivity : AppCompatActivity() {
         val arrayList: ArrayList<ToDo> = ArrayList()
 
 
-
         val arrayAdapter = ToDoListAdapter(this, arrayList)
 
         listView.adapter = arrayAdapter
         arrayAdapter.add(ToDo("First"))
         arrayAdapter.add(ToDo("Second"))
         fab.setOnClickListener {
-            run{
-                arrayAdapter.add(ToDo("New Item"))
+            run {
+                arrayAdapter.add(ToDo("Item ${arrayAdapter.count + 1}"))
             }
         }
     }
