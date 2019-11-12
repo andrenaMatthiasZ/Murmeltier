@@ -6,8 +6,10 @@ import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.AdapterView.AdapterContextMenuInfo
 import android.widget.ListView
 import kotlinx.android.synthetic.main.activity_main.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -51,11 +53,14 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
+        val toDo = listView.adapter.getItem((item.menuInfo as AdapterContextMenuInfo).position) as ToDo
+
         return when (item.itemId) {
             R.id.rename_item ->
                 true
-            R.id.delete_item ->
-                true
+            R.id.delete_item ->{
+                (listView.adapter as ToDoListAdapter).remove(toDo)
+                return true}
             R.id.activate_item ->
                 true
             R.id.deactivate_item ->
