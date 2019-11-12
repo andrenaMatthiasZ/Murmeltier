@@ -1,4 +1,4 @@
 package com.example.murmeltier
 
-class ToDo(val title: String) {
+class ToDo(var title: String) {
 }
