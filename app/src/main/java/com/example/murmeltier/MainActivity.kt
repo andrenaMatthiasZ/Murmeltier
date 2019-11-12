@@ -2,8 +2,10 @@ package com.example.murmeltier
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.ListView
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -19,6 +21,7 @@ class MainActivity : AppCompatActivity() {
         listView = findViewById(R.id.list)
 
         listView.adapter = createToDoList()
+        registerForContextMenu(listView)
     }
 
     private fun createToDoList(): ToDoListAdapter {
@@ -46,5 +49,27 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+    override fun onContextItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.rename_item ->
+                true
+            R.id.delete_item ->
+                true
+            R.id.activate_item ->
+                true
+            R.id.deactivate_item ->
+                true
+            else -> super.onContextItemSelected(item)
+        }
+    }
+
+
+    override fun onCreateContextMenu(menu: ContextMenu, v: View, menuInfo: ContextMenu.ContextMenuInfo) {
+        super.onCreateContextMenu(menu, v, menuInfo)
+
+        val inflater = menuInflater
+        inflater.inflate(R.menu.menu_item, menu)
+    }
 
 }
