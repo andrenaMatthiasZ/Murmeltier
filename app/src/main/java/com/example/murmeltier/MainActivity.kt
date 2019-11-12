@@ -66,10 +66,16 @@ class MainActivity : AppCompatActivity() {
                 toDoListAdapter().remove(toDo)
                 return true
             }
-            R.id.activate_item ->
-                true
-            R.id.deactivate_item ->
-                true
+            R.id.activate_item -> {
+                toDo.state = ToDoState.ACTIVE
+                toDoListAdapter().notifyDataSetChanged()
+                return true
+            }
+            R.id.deactivate_item -> {
+                toDo.state = ToDoState.INACTIVE
+                toDoListAdapter().notifyDataSetChanged()
+                return true
+            }
             else -> super.onContextItemSelected(item)
         }
     }
