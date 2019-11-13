@@ -87,6 +87,7 @@ class MainActivity : AppCompatActivity() {
     ) {
         val builder = AlertDialog.Builder(this)
         val editText = EditText(this)
+        editText.setText(task.title)
 
         builder.run {
             setView(editText)
