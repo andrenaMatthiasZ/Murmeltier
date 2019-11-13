@@ -2,6 +2,7 @@
 <resources>
     <color name="colorPrimary">#575757</color>
     <color name="colorPrimaryDark">#000000</color>
+    <color name="colorPrimaryBackground">#dbdbdb</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colorText">#000000</color>
     <color name="colorBackgroundToDo">#b54e45</color>
