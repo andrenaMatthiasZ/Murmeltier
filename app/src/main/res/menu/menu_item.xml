@@ -4,8 +4,10 @@
             android:title="@string/rename" />
     <item android:id="@+id/delete_item"
             android:title="@string/delete" />
-    <item android:id="@+id/activate_item"
-            android:title="@string/activate"/>
-    <item android:id="@+id/deactivate_item"
-            android:title="@string/deactivate"/>
+    <item
+            android:id="@+id/to_do_item"
+            android:title="@string/to_do" />
+    <item
+            android:id="@+id/done_item"
+            android:title="@string/done" />
 </menu>
