@@ -16,15 +16,14 @@
 
     <style name="ToDoItem_Common">
         <item name="android:padding">16dp</item>
+        <item name="android:textColor">@color/colorText</item>
     </style>
 
     <style name="ToDoItem_ToDo" parent="ToDoItem_Common">
-        <item name="android:textColor">@color/colorTextToDo</item>
         <item name="android:background">@color/colorBackgroundToDo</item>
     </style>
 
     <style name="ToDoItem_Done" parent="ToDoItem_Common">
-        <item name="android:textColor">@color/colorTextDone</item>
         <item name="android:background">@color/colorBackgroundDone</item>
     </style>
 

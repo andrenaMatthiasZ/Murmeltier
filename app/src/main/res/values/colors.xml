@@ -3,8 +3,7 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
-    <color name="colorTextToDo">#000000</color>
-    <color name="colorTextDone">#808080</color>
-    <color name="colorBackgroundToDo">#ffe53d</color>
-    <color name="colorBackgroundDone">#c9c9c9</color>
+    <color name="colorText">#000000</color>
+    <color name="colorBackgroundToDo">#b54e45</color>
+    <color name="colorBackgroundDone">#44823e</color>
 </resources>
