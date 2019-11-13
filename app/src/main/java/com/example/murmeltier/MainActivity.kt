@@ -28,8 +28,8 @@ class MainActivity : AppCompatActivity() {
         registerForContextMenu(listView)
     }
 
-    private fun createToDoList(): ToDoListAdapter {
-        val arrayAdapter = ToDoListAdapter(this, ArrayList())
+    private fun createToDoList(): TastListAdapter {
+        val arrayAdapter = TastListAdapter(this, ArrayList())
 
         arrayAdapter.init()
         fab.setOnClickListener { run { arrayAdapter.createNew() } }
@@ -67,12 +67,12 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
             R.id.activate_item -> {
-                toDo.state = ToDoState.ACTIVE
+                toDo.state = TaskState.TODO
                 toDoListAdapter().notifyDataSetChanged()
                 return true
             }
             R.id.deactivate_item -> {
-                toDo.state = ToDoState.INACTIVE
+                toDo.state = TaskState.DONE
                 toDoListAdapter().notifyDataSetChanged()
                 return true
             }
@@ -80,10 +80,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun toDoListAdapter() = listView.adapter as ToDoListAdapter
+    private fun toDoListAdapter() = listView.adapter as TastListAdapter
 
     private fun rename(
-        toDo: ToDo
+        task: Task
     ) {
         val builder = AlertDialog.Builder(this)
         val editText = EditText(this)
@@ -95,7 +95,7 @@ class MainActivity : AppCompatActivity() {
                 "Ok"
             ) { _, _ ->
                 run {
-                    toDo.title = editText.text.toString()
+                    task.title = editText.text.toString()
                     toDoListAdapter().notifyDataSetChanged()
                 }
             }

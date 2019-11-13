@@ -18,14 +18,14 @@
         <item name="android:padding">16dp</item>
     </style>
 
-    <style name="ToDoItem_Active" parent="ToDoItem_Common">
-        <item name="android:textColor">@color/colorTextActive</item>
-        <item name="android:background">@color/colorBackgroundActive</item>
+    <style name="ToDoItem_ToDo" parent="ToDoItem_Common">
+        <item name="android:textColor">@color/colorTextToDo</item>
+        <item name="android:background">@color/colorBackgroundToDo</item>
     </style>
 
-    <style name="ToDoItem_Inactive" parent="ToDoItem_Common">
-        <item name="android:textColor">@color/colorTextInactive</item>
-        <item name="android:background">@color/colorBackgroundInactive</item>
+    <style name="ToDoItem_Done" parent="ToDoItem_Common">
+        <item name="android:textColor">@color/colorTextDone</item>
+        <item name="android:background">@color/colorBackgroundDone</item>
     </style>
 
 </resources>
