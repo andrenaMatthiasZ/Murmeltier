@@ -14,4 +14,14 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
+    <style name="ToDoItem_Common" />
+
+    <style name="ToDoItem_Active" parent="ToDoItem_Common">
+        <item name="android:textColor">@color/colorTextActive</item>
+    </style>
+
+    <style name="ToDoItem_Inactive" parent="ToDoItem_Common">
+        <item name="android:textColor">@color/colorTextInactive</item>
+    </style>
+
 </resources>

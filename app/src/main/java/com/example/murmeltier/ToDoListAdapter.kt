@@ -1,7 +1,7 @@
 package com.example.murmeltier
 
 import android.app.Activity
-import android.graphics.Color
+import android.support.v7.view.ContextThemeWrapper
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
@@ -20,21 +20,21 @@ class ToDoListAdapter(context: Activity, private val toDos: ArrayList<ToDo>) :
     }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
-        val view = TextView(context)
         val toDo = toDos[position]
+        val view = TextView(ContextThemeWrapper(context, getStyle(toDo.state)))
 
         view.text = toDo.title
-        view.setTextColor(getColor(toDo.state))
 
         return view
     }
 
-    private fun getColor(toDoState: ToDoState): Int {
+    private fun getStyle(toDoState: ToDoState): Int {
         return when (toDoState) {
-            ToDoState.ACTIVE -> Color.BLACK
-            ToDoState.INACTIVE -> Color.GRAY
+            ToDoState.ACTIVE -> R.style.ToDoItem_Active
+            ToDoState.INACTIVE -> R.style.ToDoItem_Inactive
         }
     }
+
 
 }
 
