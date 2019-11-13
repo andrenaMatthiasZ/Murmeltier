@@ -35,6 +35,24 @@ class TastListAdapter(context: Activity, private val tasks: ArrayList<Task>) :
         }
     }
 
+    fun setToDone(position: Int) {
+        getItem(position)!!.state = TaskState.DONE
+
+        notifyDataSetChanged()
+    }
+
+    fun setToToDo(position: Int) {
+        getItem(position)!!.state = TaskState.TODO
+
+        notifyDataSetChanged()
+    }
+
+    fun setText(position: Int, newTitle: String) {
+        getItem(position)!!.title = newTitle
+
+        notifyDataSetChanged()
+    }
+
 
 }
 

@@ -55,11 +55,12 @@ class MainActivity : AppCompatActivity() {
 
 
     override fun onContextItemSelected(item: MenuItem): Boolean {
-        val toDo = toDoListAdapter().getItem((item.menuInfo as AdapterContextMenuInfo).position)!!
+        val position = (item.menuInfo as AdapterContextMenuInfo).position
+        val toDo = toDoListAdapter().getItem(position)!!
 
         return when (item.itemId) {
             R.id.rename_item -> {
-                rename(toDo)
+                rename(toDo.title, position)
                 return true
             }
             R.id.delete_item -> {
@@ -67,37 +68,31 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
             R.id.to_do_item -> {
-                toDo.state = TaskState.TODO
-                toDoListAdapter().notifyDataSetChanged()
+                toDoListAdapter().setToToDo(position)
                 return true
             }
             R.id.done_item -> {
-                toDo.state = TaskState.DONE
-                toDoListAdapter().notifyDataSetChanged()
+                toDoListAdapter().setToDone(position)
                 return true
             }
             else -> super.onContextItemSelected(item)
         }
     }
 
-    private fun toDoListAdapter() = listView.adapter as TastListAdapter
-
-    private fun rename(
-        task: Task
-    ) {
+    private fun rename(title: String, position: Int) {
         val builder = AlertDialog.Builder(this)
         val editText = EditText(this)
-        editText.setText(task.title)
+        editText.setText(title)
 
         builder.run {
+
             setView(editText)
 
             setPositiveButton(
                 "Ok"
             ) { _, _ ->
                 run {
-                    task.title = editText.text.toString()
-                    toDoListAdapter().notifyDataSetChanged()
+                    toDoListAdapter().setText(position, editText.text.toString())
                 }
             }
             setNegativeButton("Cancel") { dialog, _ -> dialog.cancel() }
@@ -105,6 +100,8 @@ class MainActivity : AppCompatActivity() {
             show()
         }
     }
+
+    private fun toDoListAdapter() = listView.adapter as TastListAdapter
 
 
     override fun onCreateContextMenu(
