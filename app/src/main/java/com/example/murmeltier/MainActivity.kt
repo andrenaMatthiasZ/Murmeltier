@@ -28,8 +28,8 @@ class MainActivity : AppCompatActivity() {
         registerForContextMenu(listView)
     }
 
-    private fun createToDoList(): TastListAdapter {
-        val arrayAdapter = TastListAdapter(this, ArrayList())
+    private fun createToDoList(): TaskListAdapter {
+        val arrayAdapter = TaskListAdapter(this, ArrayList())
 
         arrayAdapter.init()
         fab.setOnClickListener { run { arrayAdapter.createNew() } }
@@ -101,7 +101,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun toDoListAdapter() = listView.adapter as TastListAdapter
+    private fun toDoListAdapter() = listView.adapter as TaskListAdapter
 
 
     override fun onCreateContextMenu(

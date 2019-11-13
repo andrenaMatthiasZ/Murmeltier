@@ -7,7 +7,7 @@ import android.widget.ArrayAdapter
 import android.widget.TextView
 import androidx.appcompat.view.ContextThemeWrapper
 
-class TastListAdapter(context: Activity, private val tasks: ArrayList<Task>) :
+class TaskListAdapter(context: Activity, private val tasks: ArrayList<Task>) :
     ArrayAdapter<Task>(context, R.layout.todo_list, tasks) {
 
     fun init() {
