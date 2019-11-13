@@ -1,11 +1,11 @@
 package com.example.murmeltier
 
 import android.app.Activity
-import android.support.v7.view.ContextThemeWrapper
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
 import android.widget.TextView
+import androidx.appcompat.view.ContextThemeWrapper
 
 class TastListAdapter(context: Activity, private val tasks: ArrayList<Task>) :
     ArrayAdapter<Task>(context, R.layout.todo_list, tasks) {
